@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/tile_1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_above="@+id/tile_5"
+        android:layout_toStartOf="@+id/tile_5"
+        android:tag="1"
+        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/tile_color"
+        android:onClick="click"/>
+
+    <Button
+        android:id="@+id/tile_2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_above="@+id/tile_5"
+        android:layout_alignStart="@+id/tile_5"
+        android:tag="2"
+        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/tile_color"
+        android:onClick="click"/>
+
+    <Button
+        android:id="@+id/tile_3"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_above="@+id/tile_5"
+        android:layout_toEndOf="@+id/tile_5"
+        android:tag="3"
+        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/tile_color"
+        android:onClick="click"/>
+
+    <Button
+        android:id="@+id/tile_4"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignTop="@+id/tile_5"
+        android:layout_toStartOf="@+id/tile_5"
+        android:tag="4"
+        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/tile_color"
+        android:onClick="click"/>
+
+    <Button
+        android:id="@+id/tile_5"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="5dp"
+        android:tag="5"
+        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/tile_color"
+        android:onClick="click"/>
+
+    <Button
+        android:id="@+id/tile_6"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignTop="@+id/tile_5"
+        android:layout_toEndOf="@+id/tile_5"
+        android:tag="6"
+        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/tile_color"
+        android:onClick="click"/>
+
+    <Button
+        android:id="@+id/tile_7"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/tile_5"
+        android:layout_toStartOf="@+id/tile_5"
+        android:tag="7"
+        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/tile_color"
+        android:onClick="click"/>
+
+    <Button
+        android:id="@+id/tile_8"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/tile_5"
+        android:layout_alignStart="@+id/tile_5"
+        android:tag="8"
+        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/tile_color"
+        android:onClick="click"/>
+
+    <Button
+        android:id="@+id/tile_9"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/tile_5"
+        android:layout_toEndOf="@+id/tile_5"
+        android:tag="9"
+        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/tile_color"
+        android:onClick="click"/>
+
+    <Button
+        android:id="@+id/newGameButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tile_8"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:onClick="newGame"
+        android:text="New game"
+        android:backgroundTint="@color/tile_color"/>
+
+</RelativeLayout>
