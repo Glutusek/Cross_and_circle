@@ -124,4 +124,13 @@
         android:text="New game"
         android:backgroundTint="@color/tile_color"/>
 
+    <TextView
+        android:id="@+id/comm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_above="@id/tile_2"
+        android:layout_marginBottom="10dp"
+        android:textSize="30sp"/>
+
 </RelativeLayout>
