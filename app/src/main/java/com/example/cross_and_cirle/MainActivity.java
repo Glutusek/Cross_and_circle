@@ -1,4 +1,4 @@
-package com.example.cross_and_cirle;
+package com.example.cross_and_circle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     boolean X_started;
     boolean X_move;
     boolean gameStarted = false;
+    TextView comm;
 
     // Dwuwymiarowa tablica na przyciski
     Button [][] tilesArray = new Button[3][3];
@@ -39,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
             tilesArray[i/3][i%3] = findViewById(tileID);
             tilesArray[i/3][i%3].setEnabled(false);
         }
+
+        comm = findViewById(R.id.comm);
+        comm.setText("Rozpocznij grę!");
     }
 
     /**
@@ -49,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
         // Pobranie wartości o ostatnim wygranym graczu z bazy danych
         X_started = sharedPreferences.getBoolean("X_won", true);
         X_move = X_started;
+
+        if(X_move)
+            comm.setText("Zaczyna gracz X");
+        else
+            comm.setText("Zaczyna gracz O");
 
         // Wyczyszczenie i aktywacja przycisków
         for(int i = 0; i < 9; i++){
@@ -78,13 +88,14 @@ public class MainActivity extends AppCompatActivity {
                 if(X_move) {
                     // Wpisanie w pole znaku X
                     pressedButton.setText("X");
+                    comm.setText("Ruch gracza O");
 
                     if(winCheck(X_move)) {
                         // Jeżeli gracz X wygrał
 
                         // Zakończenie gry z komunikatem
                         gameStarted = false;
-                        Toast.makeText(getApplicationContext(), "Wygrana gracza X!", Toast.LENGTH_SHORT).show();
+                        comm.setText("Wygrana gracza X!");
 
                         // Wprowadzanie wyranego gracza do bazy danych
                         editor.putBoolean("X_won", true);
@@ -97,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                         // Jeżeli remis
 
                         gameStarted = false;
-                        Toast.makeText(getApplicationContext(), "Remis!", Toast.LENGTH_SHORT).show();
+                        comm.setText("Remis!");
 
                         editor.putBoolean("X_won", !X_started);
                         editor.commit();
@@ -109,12 +120,13 @@ public class MainActivity extends AppCompatActivity {
                 } else { // Jeżeli ruch gracza O
                     // Wpisanie w pole znaku O
                     pressedButton.setText("O");
+                    comm.setText("Ruch gracza X");
 
                     if (winCheck(X_move)) {
                         // Jeżeli gracz O wygrał
 
                         gameStarted = false;
-                        Toast.makeText(getApplicationContext(), "Wygrana gracza O!", Toast.LENGTH_SHORT).show();
+                        comm.setText("Wygrana gracza O!");
 
                         editor.putBoolean("X_won", false);
                         editor.commit();
@@ -124,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                         // Jeżeli remis
 
                         gameStarted = false;
-                        Toast.makeText(getApplicationContext(), "Remis!", Toast.LENGTH_SHORT).show();
+                        comm.setText("Remis!");
 
                         editor.putBoolean("X_won", !X_started);
                         editor.commit();
@@ -149,14 +161,14 @@ public class MainActivity extends AppCompatActivity {
     private boolean winCheck(boolean X_move) {
         // Możliwe układy wygranej
         String [] winningConditions = {
-            "123",
-            "456",
-            "789",
-            "147",
-            "258",
-            "369",
-            "159",
-            "357"
+                "123",
+                "456",
+                "789",
+                "147",
+                "258",
+                "369",
+                "159",
+                "357"
         };
 
         boolean win = false;
@@ -189,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 }
             }
-            
+
             if(win)
                 break;
         }
